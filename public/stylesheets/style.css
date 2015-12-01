@@ -7,7 +7,6 @@ a {
   color: #00B7FF;
 }
 
-
 .searchcontainer {
   /*margin-top: 50px;*/
   padding-top: 30px;
@@ -18,14 +17,13 @@ a {
   /*background-color: #eee;*/
   font-size: 0.9em;
   margin-left: 10px;
-  line-height: 70%
+  word-wrap: normal;
 }
 
 .userphotobox {
   margin: 10px auto;
   width: 200px;
   height: 200px;
-
   /*background-color: #aaa;*/
 }
 
