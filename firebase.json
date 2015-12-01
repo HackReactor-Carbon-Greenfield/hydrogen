@@ -1,0 +1,8 @@
+{
+  "firebase": "dvelop-carbon",
+  "public": "public",
+  "ignore": [
+    "firebase.json",
+    "**/node_modules/**"
+  ]
+}
