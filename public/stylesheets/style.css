@@ -38,14 +38,13 @@ h1 {
   /*background-color: #eee;*/
   font-size: 0.9em;
   margin-left: 10px;
-  line-height: 70%
+  word-wrap: normal;
 }
 
 .userphotobox {
   margin: 10px auto;
   width: 200px;
   height: 200px;
-
   /*background-color: #aaa;*/
 }
 
