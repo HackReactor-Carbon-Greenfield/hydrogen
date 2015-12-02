@@ -1,14 +1,35 @@
-body {
+/*body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+}*/
 
 a {
   color: #00B7FF;
 }
 
+h1 {
+  padding-top: 50px;
+}
+
+.heroimg {
+  height: 850px;
+  width: 1280px;
+  padding: 0px;
+  background-image: url('/assets/heroimg.jpeg');
+  position: absolute;
+}
+
+.heroh1{
+  margin: 0px
+  color: #fff !important;
+}
+
+.authheader {
+  margin-top: 200px
+}
+
 .searchcontainer {
-  /*margin-top: 50px;*/
+  margin-top: 50px;
   padding-top: 30px;
   padding-bottom: 30px;
 }

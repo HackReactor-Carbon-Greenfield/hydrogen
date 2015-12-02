@@ -1,3 +1,5 @@
+// We should add a profile page and leave this as the sign up page.
+
 angular.module('dvelop.signup', ['dvelop.auth'])
 
 .controller('SignupController', function($scope, UserStore, Auth, $location){
