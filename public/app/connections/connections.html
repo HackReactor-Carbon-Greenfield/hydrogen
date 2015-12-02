@@ -32,10 +32,37 @@
 
 <div ng-controller="ConnectionsController" class="connections">
   <div class="suggested-connections">
-    <p>Would you like to connect with anyone here?</p>
+    <h3>Would you like to connect with anyone here?</h3>
 
-    <div ng-repeat="user in users">
-      <div>{{user.$id}}</div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row-fluid">
+            <div class="col-md-3"
+                 ng-repeat="user in usersDisconnected">
+              <div class="userinfo">
+                <div class="userphotobox">
+                  <img class="userphoto" src="{{ user.profileImageUrl }}">
+                </div>
+                <button type="button" class="btn btn-primary"
+                        data-toggle="modal"
+                        data-target=".bs-example-modal-sm">
+                  Add connection
+                </button>
+                <p class="userinfobox">Name: {{user.displayName}}</p>
+
+                <p class="userinfobox">Best at: {{user.bestAt}}</p>
+
+                <p class="userinfobox">Available for Mentor:
+                  {{user.mentorAvail}}</p>
+
+                <p class="userinfobox">Help Skill: {{user.helpAvail}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -43,5 +70,52 @@
     <!-- TODO: display list of current connections -->
     <!-- TODO: add filtering options, ui options, etc... -->
     <p>Here are your connections</p>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row-fluid">
+            <div class="col-md-3"
+                 ng-repeat="user in usersConnected">
+              <div class="userinfo">
+                <div class="userphotobox">
+                  <img class="userphoto" src="{{ user.profileImageUrl }}">
+                </div>
+                <button type="button" class="btn btn-primary"
+                        data-toggle="modal"
+                        data-target=".bs-example-modal-sm">
+                  Add connection
+                </button>
+                <p class="userinfobox">Name: {{user.displayName}}</p>
+
+                <p class="userinfobox">Best at: {{user.bestAt}}</p>
+
+                <p class="userinfobox">Available for Mentor:
+                  {{user.mentorAvail}}</p>
+
+                <p class="userinfobox">Help Skill: {{user.helpAvail}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- Modal for connections -->
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog"
+     aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4>Your connection request was sent!</h4>
+      </div>
+      <div class="modal-body">
+        <p>Happy codding!</p>
+      </div>
+    </div>
   </div>
 </div>
