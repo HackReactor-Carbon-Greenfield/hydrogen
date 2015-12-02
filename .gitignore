@@ -24,3 +24,6 @@ public/bower_components/
 
 # WebStorm
 .idea/
+
+# Firebase
+firebase-debug.log

@@ -9,9 +9,7 @@ angular.module('dvelop.signup', ['dvelop.auth'])
   Auth.$onAuth(function(authData){
     $scope.authData = authData;
     $scope.currentUser = UserStore[$scope.authData.github.id];
-
     var name = $scope.currentUser.displayName;
-
     $scope.user.displayName = $scope.currentUser.displayName;
     $scope.user.emailAddress = $scope.currentUser.email;
     $scope.user.birthday = "";
@@ -21,10 +19,8 @@ angular.module('dvelop.signup', ['dvelop.auth'])
     $scope.user.bestAt = '';
     $scope.user.helpAvail = true;
     $scope.user.job = '';
-
   $scope.user.mentorAvail = true;
-  })
-
+  });
 $scope.saveData = function(){
 	var userRef = new Firebase("https://dvelop-carbon.firebaseio.com/users"); 
 	userRef.child($scope.authData.github.id).update($scope.user);

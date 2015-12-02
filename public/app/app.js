@@ -1,11 +1,4 @@
-angular.module('dvelop', [
-    'dvelop.auth',
-    'firebase',
-    'dvelop.search',
-    'dvelop.signup',
-    'ngRoute'
-  ])
-
+angular.module('dvelop', ['firebase', 'ngRoute', 'dvelop.auth', 'dvelop.search', 'dvelop.connections', 'dvelop.signup'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/auth', {
