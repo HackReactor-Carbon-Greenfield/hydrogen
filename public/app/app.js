@@ -20,6 +20,10 @@ angular.module('dvelop', [
       templateUrl: 'app/search/search.html',
       controller: 'SearchController as search'
     })
+    .when('/connection', {
+      templateUrl: 'app/connection/connection.html',
+      controller: 'ConnectionController'
+    })
     .otherwise({
       templateUrl: 'app/auth/auth.html',
       controller: 'AuthController'
