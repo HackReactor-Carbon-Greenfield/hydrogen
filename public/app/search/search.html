@@ -3,7 +3,9 @@
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+      <button type="button" class="navbar-toggle collapsed"
+              data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+              aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -14,7 +16,7 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      
+
       <ul class="nav navbar-nav">
         <li><a href="#/signup">Profile</a></li>
         <li><a href="#/search">Search</a></li>
@@ -26,58 +28,73 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-  
+
 
 <!-- Search Bar -->
-  <div class='container searchcontainer' align="center">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-4">
-        <form name="searchForm" class="search-bar form-inline" action="/#/community">
-          <div class="form-group col-lg-8">
-            <input class="form-control" name="search" ng-model="search.input" placeholder="Search...">
-          </div>
-        </form>
-      </div>
+<div class='container searchcontainer' align="center">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-4">
+      <form name="searchForm" class="search-bar form-inline"
+            action="/#/community">
+        <div class="form-group col-lg-8">
+          <input class="form-control" name="search" ng-model="search.input"
+                 placeholder="Search...">
+        </div>
+      </form>
     </div>
   </div>
+</div>
 </div>
 
 
 <!-- Drop down menu for seacrhing by experience -->
 <div class="dropdown-container" align="center">
   <label>Professional Level: </label>
-    <select ng-model="search.level">
-      <option value="">Professional Level </option>
-      <option value="Advanced">Advanced</option>
-      <option value="Intermediate">Intermediate</option>
-      <option value="Novice">Novice</option>
-    </select>
+  <select ng-model="search.level">
+    <option value="">Professional Level</option>
+    <option value="Advanced">Advanced</option>
+    <option value="Intermediate">Intermediate</option>
+    <option value="Novice">Novice</option>
+  </select>
 </div>
 
 
 <!-- Search results, shows the summary profile of each of the users -->
 <div class="container">
   <div class="row">
-    <div class="col-md-12" >
-      <div class="row-fluid" >
-        <div class="col-md-3" ng-repeat="user in search.users | filter: search.input | filter: search.level">
+    <div class="col-md-12">
+      <div class="row-fluid">
+        <div class="col-md-3"
+             ng-repeat="user in search.users | filter: search.input | filter: search.level">
           <div class="userinfo">
             <div class="userphotobox">
               <img class="userphoto" src="{{ user.profileImageUrl }}">
             </div>
-            <button type="button" ng-click="addConnection()" class="btn btn-primary" data-toggle="modal"
-                    data-target=".bs-example-modal-sm" >
-              Add connection
-            </button>
-            <button type="button" class="btn btn-primary btn-sm chat-button" ng-click="makeChat('Brian')">
-              Chat
-            </button>
+            <div class="btns">
+              <button type="button" ng-click="addConnection()"
+                      class="btn btn-primary connection-button"
+                      data-toggle="modal" data-target=".bs-example-modal-sm">
+                Add connection
+              </button>
+
+              <button type="button" class="btn btn-primary btn-sm chat-button"
+                      ng-click="makeChat('Brian')">
+                Chat
+              </button>
+            </div>
             <p class="userinfobox">Name: {{user.displayName}}</p>
+
             <p class="userinfobox">Location: {{user.address}}</p>
+
             <p class="userinfobox">Skill Level: {{user.professionalLevel}}</p>
+
             <p class="userinfobox">Best at: {{user.bestAt}}</p>
-            <p class="userinfobox">Available for Mentor: {{user.mentorAvail}}</p>
+
+            <p class="userinfobox">Available for Mentor:
+              {{user.mentorAvail}}</p>
+
             <p class="userinfobox">Tech Skill: {{user.techSkill}}</p>
+
             <p class="userinfobox">Help Skill: {{user.helpAvail}}</p>
           </div>
         </div>
@@ -86,25 +103,28 @@
   </div>
 
 
-<!-- Modal for chat -->
-<div class="modal fade" id="chatModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Chat</h4>
-      </div>
-      <div class="modal-body">
-        <form>
-          <textarea class="form-control" rows="10"></textarea>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Send</button>
+  <!-- Modal for chat -->
+  <div class="modal fade" id="chatModal" tabindex="-1" role="dialog"
+       aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"
+                  aria-label="Close"><span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">Chat</h4>
+        </div>
+        <div class="modal-body">
+          <form>
+            <textarea class="form-control" rows="10"></textarea>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </div>
 
 

@@ -16,6 +16,14 @@
   filter: blur(5px);
 }
 
+.btn {
+
+}
+
+.btns {
+
+}
+
 .heroMask {
   height: 100vh;
   width: 100vw;
@@ -138,8 +146,10 @@ h1 {
   float: left;
 }
 
-.chat-button {
+.chat-button, .connection-button {
   margin-left: 20px;
+  height: 30px;
+  font-size: 12px;
 }
 
 .chat-box {
