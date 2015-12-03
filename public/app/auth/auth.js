@@ -2,6 +2,7 @@
 populate user profile with Github profile picture, name, and basic information. For improvement, save data to DB when 
 it is imported from Github.  
 */
+// var globalCurrent;
 
 angular.module('dvelop.auth', [])
 
@@ -20,7 +21,7 @@ angular.module('dvelop.auth', [])
 	return userStore;
 })
 
-.controller('AuthController', function($scope, Auth, $location, UsersRef, UserStore){
+.controller('AuthController', function($scope, Auth, $location, UsersRef, UserStore,$rootScope){
 	Auth.$onAuth(function(authData){
 		$scope.authData = authData;
 
@@ -28,6 +29,7 @@ angular.module('dvelop.auth', [])
 			console.log('User is not logged in yet.');
 		} else {
 			console.log('User logged in as ', authData);
+			$rootScope.globalCurrent = authData.github.displayName
 			$location.path('/search')
 		}
 	})
@@ -37,7 +39,9 @@ angular.module('dvelop.auth', [])
 			.then(function(authData){
 				if (UserStore[authData.github.id]){
 					$location.path('/search');
+					// globalCurrent = Object.keys(UserStore)
 				} else{	
+					// globalCurrent = Object.keys(UserStore)
 					UserStore[authData.github.id] = {
 						userID: authData.github.id,
 						displayName: authData.github.displayName,
@@ -49,7 +53,6 @@ angular.module('dvelop.auth', [])
 				$location.path('/signup');
 
 			})
-			
 	}
 })
 

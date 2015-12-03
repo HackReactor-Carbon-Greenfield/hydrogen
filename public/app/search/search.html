@@ -65,7 +65,11 @@
             <div class="userphotobox">
               <img class="userphoto" src="{{ user.profileImageUrl }}">
             </div>
-            <button type="button" class="btn btn-primary btn-sm chat-button" data-toggle="modal" data-target="#chatModal">
+            <button type="button" ng-click="addConnection()" class="btn btn-primary" data-toggle="modal"
+                    data-target=".bs-example-modal-sm" >
+              Add connection
+            </button>
+            <button type="button" class="btn btn-primary btn-sm chat-button" ng-click="makeChat('Brian')">
               Chat
             </button>
             <p class="userinfobox">Name: {{user.displayName}}</p>
