@@ -7,6 +7,7 @@ var ChatModule = (function() {
 
   var $body = $('body');
   var chats = [];
+  var otherUsers = [];
   var subscriptions;
   var currentUser;
 
@@ -118,7 +119,10 @@ var ChatModule = (function() {
 
   return {
     create: function(otherUser) {
-      chats.push(new Chat(currentUser, otherUser));
+      if (otherUsers.indexOf(otherUser) === -1) {
+        chats.push(new Chat(currentUser, otherUser));
+        otherUsers.push(otherUser);
+      }
     },
     setUser: function(user) {
       currentUser = user;
