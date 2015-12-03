@@ -20,6 +20,19 @@ angular.module('dvelop.auth', [])
 	return userStore;
 })
 
+.factory('CurrentUser', function() {
+	var user;
+
+	return {
+		get: function() {
+			return user;
+		},
+		set: function(user) {
+			user = user;
+		}
+	};
+})
+
 .controller('AuthController', function($scope, Auth, $location, UsersRef, UserStore){
 	Auth.$onAuth(function(authData){
 		$scope.authData = authData;
@@ -38,6 +51,7 @@ angular.module('dvelop.auth', [])
 				if (UserStore[authData.github.id]){
 					$location.path('/search');
 				} else{	
+					currentUser = authData.github.id;
 					UserStore[authData.github.id] = {
 						userID: authData.github.id,
 						displayName: authData.github.displayName,
