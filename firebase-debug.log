@@ -13,3 +13,11 @@
 [debug] ----------------------------------------------------------------------
 [debug] 
 [info] Listening at http://localhost:5000
+[debug] ----------------------------------------------------------------------
+[debug] Command:      /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] Platform:     darwin
+[debug] Node Version: v5.0.0
+[debug] Time:         Thu Dec 03 2015 15:46:49 GMT-0600 (CST)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Listening at http://localhost:5000
