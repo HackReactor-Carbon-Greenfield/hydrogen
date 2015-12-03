@@ -7,6 +7,39 @@ var ChatModule = (function() {
 
   var $body = $('body');
   var chats = [];
+  var subscriptions;
+  var currentUser;
+
+  var listen = function() {
+    var userRef = new Firebase('https://dvelop-carbon.firebaseio.com/users/');
+
+    subscriptions = [];
+
+    userRef.once('value', function(user) {
+      user.forEach(function(data) {
+        var otherUser = data.val().displayName;
+
+        if (otherUser && currentUser !== otherUser) {
+          otherUser = otherUser.replace(/[.]/g, '');
+          var path = currentUser < otherUser ? currentUser + '-' + otherUser  : otherUser + '-' + currentUser;
+          var ref = new Firebase('https://dvelop-carbon.firebaseio.com/messages/' + path);
+          var displayed = false;
+          var calledOnce = false;
+
+          subscriptions.push(ref);
+
+          ref.on('value', function(data) {
+            if (!displayed && calledOnce) {
+              ChatModule.create(otherUser);
+              displayed = true;
+            }
+
+            if (!calledOnce) calledOnce = true;
+          });
+        }
+      });
+    });
+  };
 
   var Chat = function(currentUser, otherUser) {
     this.currentUser = currentUser;
@@ -25,17 +58,19 @@ var ChatModule = (function() {
   };
 
   Chat.prototype.init = function() {
+    this.renderChat();
+    this.$content.scrollTop(this.$content.prop('scrollHeight'));
+
     this.messagesRef.on('value', function(data) {
       this.messages = data.val();
       this.renderMessages();
     }.bind(this));
 
-    this.renderChat();
-    this.$content.scrollTop(this.$content.prop('scrollHeight'));
   };
 
   Chat.prototype.renderChat = function() {
-    var chatTemplate = '<div class="chat-box">' +
+    var chatTemplate = 
+      '<div class="chat-box">' +
         '<input type="checkbox" />' +
         '<label data-expanded="$otherUser" data-collapsed="$otherUser" />' +
         '<div class="chat-box-content"></div>' +
@@ -82,12 +117,14 @@ var ChatModule = (function() {
   };
 
   return {
-    create: function(currentUser, otherUser) {
+    create: function(otherUser) {
       chats.push(new Chat(currentUser, otherUser));
+    },
+    setUser: function(user) {
+      currentUser = user;
+      listen();
     }
   };
 })();
 
-
-// ChatModule.create('Michael Kim', 'Barrack Obama');
-// ChatModule.create('Barrack Obama', 'Michael Kim');
+// ChatModule.setUser('Michael Kim');

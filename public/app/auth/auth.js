@@ -21,6 +21,7 @@ angular.module('dvelop.auth', [])
 	return userStore;
 })
 
+
 .controller('AuthController', function($scope, Auth, $location, UsersRef, UserStore,$rootScope){
 	Auth.$onAuth(function(authData){
 		$scope.authData = authData;
@@ -41,7 +42,6 @@ angular.module('dvelop.auth', [])
 					$location.path('/search');
 					// globalCurrent = Object.keys(UserStore)
 				} else{	
-					// globalCurrent = Object.keys(UserStore)
 					UserStore[authData.github.id] = {
 						userID: authData.github.id,
 						displayName: authData.github.displayName,

@@ -1,9 +1,10 @@
 angular.module('dvelop.signup', ['dvelop.auth'])
 
-.controller('SignupController', function($scope, UserStore, UserFactory, Auth, $location){
+.controller('SignupController', function ($scope, UserStore, UserFactory, Auth, $location, logout){
  
  $scope.user = UserFactory;
  $scope.currentUser;
+ $scope.logout = logout.logout;
 
  //Populate form new user's Github data
  Auth.$onAuth(function(authData){
