@@ -2,7 +2,7 @@
 //The "in-memory" test version has been commented out, the app is curently correctly using the Firebase DB
 
 angular.module('dvelop.search', ['dvelop.auth'])
-.controller('SearchController', function ($scope, SearchService, logout, $location, $firebaseArray, $firebaseObject){
+.controller('SearchController', function ($scope, SearchService, logout, $location, $firebaseArray, $firebaseObject,$rootScope){
 
   var search = this;
 
@@ -20,7 +20,7 @@ angular.module('dvelop.search', ['dvelop.auth'])
 
   var ref = new Firebase("https://dvelop-carbon.firebaseio.com/users");
   // This is hard-code for Brian right now, need to update to change for different currentUsers
-  $scope.currentUser = ref.child('13421357');
+  $scope.currentUser = ref.child($rootScope.globalCurrent);
   $scope.connections = $scope.currentUser.child('connections')
   $scope.addConnection = function() {
     console.log(search.users, 'SOMETHINGGGG');
@@ -30,7 +30,8 @@ angular.module('dvelop.search', ['dvelop.auth'])
     // $scope.demConnections(this.user.displayName)
   }
   $scope.makeChat = function(personA, personB) {
-    // console.log(this.user)
+    // console.log($rootScope.globalCurrent);
+    personA = $rootScope.globalCurrent
     personB = this.user.displayName;
     ChatModule.create(personA, personB);
   }
