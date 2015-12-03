@@ -89,5 +89,5 @@ var ChatModule = (function() {
 })();
 
 
-ChatModule.create('Michael Kim', 'Barrack Obama');
-ChatModule.create('Barrack Obama', 'Michael Kim');
+// ChatModule.create('Michael Kim', 'Barrack Obama');
+// ChatModule.create('Barrack Obama', 'Michael Kim');

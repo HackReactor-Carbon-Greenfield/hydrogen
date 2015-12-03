@@ -2,7 +2,6 @@
 //The "in-memory" test version has been commented out, the app is curently correctly using the Firebase DB
 
 angular.module('dvelop.search', ['dvelop.auth'])
-
 .controller('SearchController', function ($scope, SearchService, logout, $location, $firebaseArray, $firebaseObject){
 
   var search = this;
@@ -30,10 +29,10 @@ angular.module('dvelop.search', ['dvelop.auth'])
     // 
     // $scope.demConnections(this.user.displayName)
   }
-  var connections = {};
-  $scope.demConnections = function(user) {
-    connections[user] = user;
-    return connections
+  $scope.makeChat = function(personA, personB) {
+    // console.log(this.user)
+    personB = this.user.displayName;
+    ChatModule.create(personA, personB);
   }
 
   //logout func

@@ -45,7 +45,7 @@ angular.module('dvelop.auth', [])
 						imageURL: authData.github.profileImageURL
 					}
 				}
-				console.log(UserStore); 
+				console.log(UserStore, "yooooooo"); 
 				$location.path('/signup');
 
 			})
