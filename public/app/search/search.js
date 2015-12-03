@@ -22,13 +22,19 @@ angular.module('dvelop.search', ['dvelop.auth'])
   var ref = new Firebase("https://dvelop-carbon.firebaseio.com/users");
   // This is hard-code for Brian right now, need to update to change for different currentUsers
   $scope.currentUser = ref.child('13421357');
+  $scope.connections = $scope.currentUser.child('connections')
   $scope.addConnection = function() {
     console.log(search.users, 'SOMETHINGGGG');
     // search.users.child('13421357').$add({connections: this.user.displayName});
-    $scope.currentUser.update({connections: this.user.displayName});
-
+    $scope.connections.push(this.user.displayName);
+    // 
+    // $scope.demConnections(this.user.displayName)
   }
-
+  var connections = {};
+  $scope.demConnections = function(user) {
+    connections[user] = user;
+    return connections
+  }
 
   //logout func
   search.logout = logout.logout;
