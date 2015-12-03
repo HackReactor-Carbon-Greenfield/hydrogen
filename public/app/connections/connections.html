@@ -34,19 +34,18 @@
   <div class="suggested-connections">
     <h3>Would you like to connect with anyone here?</h3>
 
-
     <div class="container">
       <div class="row">
         <div class="col-md-12">
           <div class="row-fluid">
             <div class="col-md-3"
-                 ng-repeat="user in usersDisconnected">
+                 ng-repeat="user in users | filter: users.input | filter: search.level">
               <div class="userinfo">
                 <div class="userphotobox">
                   <img class="userphoto" src="{{ user.profileImageUrl }}">
                 </div>
-                <button type="button" class="btn btn-primary"
-                        data-toggle="modal"
+                <button ng-click="addConnection()" type="button"
+                        class="btn btn-primary" data-toggle="modal"
                         data-target=".bs-example-modal-sm">
                   Add connection
                 </button>
@@ -69,7 +68,7 @@
   <div class="current-connections">
     <!-- TODO: display list of current connections -->
     <!-- TODO: add filtering options, ui options, etc... -->
-    <p>Here are your connections</p>
+    <h3>Here are your connections</h3>
 
     <div class="container">
       <div class="row">

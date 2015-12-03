@@ -23,7 +23,8 @@ angular.module('dvelop.search', ['dvelop.auth'])
     var searchService = {};
     /*// searchService.userRef = $firebaseArray(new
      // Firebase("https://amber-inferno-2562.firebaseio.com/users")); //array
-     // version*/
+     // version
+     */
     searchService.userRef = new Firebase("https://dvelop-carbon.firebaseio.com/users");
     /*////////////////////////////////////////////////////
      //Random User Generator - Irrelevant at the moment//

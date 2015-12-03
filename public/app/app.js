@@ -1,5 +1,12 @@
-angular.module('dvelop', ['firebase', 'ngRoute', 'dvelop.auth', 'dvelop.search', 'dvelop.connections', 'dvelop.signup'])
-  .config(function ($routeProvider) {
+angular.module('dvelop', [
+    'firebase',
+    'ngRoute',
+    'dvelop.auth',
+    'dvelop.search',
+    'dvelop.connections',
+    'dvelop.signup'
+  ])
+  .config(function($routeProvider) {
     $routeProvider
       .when('/auth', {
         templateUrl: 'app/auth/auth.html',

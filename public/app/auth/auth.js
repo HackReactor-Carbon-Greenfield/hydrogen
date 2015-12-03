@@ -7,20 +7,21 @@
  */
 
 angular.module('dvelop.auth', [])
-  .factory('Auth', function ($firebaseAuth) {
+  .factory('Auth', function($firebaseAuth) {
     var usersRef = new Firebase("https://dvelop-carbon.firebaseio.com/");
     return $firebaseAuth(usersRef);
   })
-  .factory('UsersRef', function () {
+  .factory('UsersRef', function() {
     var usersRef = new Firebase("https://dvelop-carbon.firebaseio.com/");
     return usersRef;
   })
-  .factory('UserStore', function () {
+  .factory('UserStore', function() {
     var userStore = {};
     return userStore;
   })
-  .controller('AuthController', function ($scope, Auth, $location, UsersRef, UserStore) {
-    Auth.$onAuth(function (authData) {
+  .controller('AuthController', function($scope, $rootScope, Auth, $location, UsersRef, UserStore) {
+    Auth.$onAuth(function(authData) {
+      $rootScope.currentUser = authData.github.id;
       $scope.authData = authData;
       if (authData === null) {
         console.log('User is not logged in yet.');
@@ -29,9 +30,9 @@ angular.module('dvelop.auth', [])
         $location.path('/search')
       }
     });
-    $scope.login = function () {
+    $scope.login = function() {
       Auth.$authWithOAuthPopup("github")
-        .then(function (authData) {
+        .then(function(authData) {
           if (UserStore[authData.github.id]) {
             $location.path('/search');
           } else {
@@ -47,8 +48,8 @@ angular.module('dvelop.auth', [])
         })
     }
   })
-  .factory('logout', function (Auth, $location) {
-    var logoutFn = function () {
+  .factory('logout', function(Auth, $location) {
+    var logoutFn = function() {
       Auth.$unauth();
       $location.path('/auth');
       console.log('This was fired!');
