@@ -45,8 +45,8 @@
 }
 
 .heroBtn:hover {
-  padding: 0;
-  background-color: rgba(255, 70, 27, 0.58);
+  /*padding: 0;*/
+  background-color: deepskyblue;
   color: white;
 }
 
