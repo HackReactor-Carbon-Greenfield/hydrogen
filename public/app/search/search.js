@@ -15,6 +15,9 @@ angular.module('dvelop.search', ['dvelop.auth'])
   // This is hard-code for Brian right now, need to update to change for different currentUsers
   $scope.currentUser = ref.child($rootScope.globalCurrent);
   $scope.connections = $scope.currentUser.child('connections')
+
+  ChatModule.setUser($rootScope.globalCurrent);
+
   $scope.addConnection = function() {
     console.log(search.users);
     $scope.connections.push(this.user.displayName);
@@ -23,7 +26,7 @@ angular.module('dvelop.search', ['dvelop.auth'])
     // console.log($rootScope.globalCurrent);
     personA = $rootScope.globalCurrent
     personB = this.user.displayName;
-    ChatModule.create(personA, personB);
+    ChatModule.create(personB);
   }
 
   //logout func
