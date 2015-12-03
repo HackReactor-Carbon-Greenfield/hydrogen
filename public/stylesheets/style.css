@@ -147,10 +147,18 @@ h1 {
 }
 
 .chat-button, .connection-button {
-  margin-left: 20px;
   height: 30px;
   font-size: 12px;
 }
+
+.chat-button{
+  margin-left: 15px;
+}
+
+.connection-button{
+  margin-left: 35px;
+}
+
 
 .chat-box {
   /*  font:normal normal 11px/1.4 Tahoma,Verdana,Sans-Serif;*/
