@@ -3,29 +3,60 @@
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }*/
 
+/* hero image start */
+
+.heroImage {
+  height: 100vh;
+  width: 100vw;
+  padding: 0px;
+  background-image: url('../assets/unsplash_1.jpeg');
+  background-size: 100% 100%;
+  position: absolute;
+  filter: ;
+}
+
+.heroMask {
+  height: 100vh;
+  width: 100vw;
+  background-color: #000;
+  opacity: 0.5;
+}
+
+.authHeader {
+  position: absolute;
+  bottom: 30%;
+  left: 30%;
+  right: 30%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto
+}
+
+.heroText {
+  margin: 0px;
+  color: #fff;
+  font-family: "Helvetica Neue Light", "Lucida Grande", "Calibri", "Arial", sans-serif;
+  font-size: 7em;
+}
+
+.heroBtn {
+  color: deepskyblue;
+}
+
+.heroBtn:hover {
+  background-image: none;
+  background-color: rgba(255, 70, 27, 0.58);
+  color: white;
+}
+
+/* hero image end */
+
 a {
   color: #00B7FF;
 }
 
 h1 {
   padding-top: 50px;
-}
-
-.heroimg {
-  height: 850px;
-  width: 1280px;
-  padding: 0px;
-  background-image: url('/assets/heroimg.jpeg');
-  position: absolute;
-}
-
-.heroh1{
-  margin: 0px
-  color: #fff !important;
-}
-
-.authheader {
-  margin-top: 200px
 }
 
 .searchcontainer {
@@ -77,27 +108,28 @@ h1 {
 .dropdown-container {
   margin: auto;
 }
+
 *[role="form"] {
-    max-width: 530px;
-    padding: 15px;
-    margin: 0 auto;
-    background-color: #fff;
-    border-radius: 0.3em;
+  max-width: 530px;
+  padding: 15px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 0.3em;
 }
 
 *[role="form"] h2 {
-    margin-left: 5em;
-    margin-bottom: 1em;
+  margin-left: 5em;
+  margin-bottom: 1em;
 }
-.user
-{
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    text-align: center;
+
+.user {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  text-align: center;
 }
 
 .chat-button {
