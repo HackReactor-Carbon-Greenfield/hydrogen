@@ -19,6 +19,17 @@ angular.module('dvelop.search', ['dvelop.auth'])
   // search.users = $firebaseObject(new Firebase("https://amber-inferno-2562.firebaseio.com/users")); //object version
   // console.log('usersinDB:',search.users);
 
+  var ref = new Firebase("https://dvelop-carbon.firebaseio.com/users");
+  // This is hard-code for Brian right now, need to update to change for different currentUsers
+  $scope.currentUser = ref.child('13421357');
+  $scope.addConnection = function() {
+    console.log(search.users, 'SOMETHINGGGG');
+    // search.users.child('13421357').$add({connections: this.user.displayName});
+    $scope.currentUser.update({connections: this.user.displayName});
+
+  }
+
+
   //logout func
   search.logout = logout.logout;
 
