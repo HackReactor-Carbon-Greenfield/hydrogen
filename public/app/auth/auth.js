@@ -29,7 +29,7 @@ angular.module('dvelop.auth', [])
 			console.log('User is not logged in yet.');
 		} else {
 			console.log('User logged in as ', authData);
-			$rootScope.globalCurrent = authData.uid.substr(7)
+			$rootScope.globalCurrent = authData.github.displayName
 			$location.path('/search')
 		}
 	})
