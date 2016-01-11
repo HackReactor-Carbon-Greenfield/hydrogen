@@ -44,18 +44,13 @@ var ChatModule = (function() {
   var Chat = function(currentUser, otherUser) {
     this.currentUser = currentUser;
     this.otherUser = otherUser;
-
     this.path = currentUser < otherUser ? currentUser + '-' + otherUser  : otherUser + '-' + currentUser;
     this.messagesRef = new Firebase('https://dvelop-carbon.firebaseio.com/messages/' + this.path);
-
     this.$chat = null;
     this.$content = null;
-
     this.messages = {};
     this.displayedMessages = {};
-
     this.lastMessageUser = '';
-
     this.init();
   };
 
